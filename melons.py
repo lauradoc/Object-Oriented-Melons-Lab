@@ -53,9 +53,12 @@ class InternationalMelonOrder(AbstractMelonOrder):
 
         return self.country_code
 
-    def get_total(self):
-        super().get_total()
+class GovernmentMelonOrder(AbstractMelonOrder):
 
-        
+    def __init__(self, species, qty, passed_inspection):
+        super().__init__(species, qty, "government", 0.0)
+        self.passed_inspection = False
 
-        return total
+    def mark_inspection(self, passed):
+        self.passed_inspection = passed
+
