@@ -1,3 +1,5 @@
+import random
+
 """Classes for melon orders."""
 
 class AbstractMelonOrder():
@@ -11,15 +13,18 @@ class AbstractMelonOrder():
         self.order_type = order_type
         self.tax = tax
 
+    def get_base_price(self):
+        base_price = random.randint(5,9)
+
+        return base_price
+
     def get_total(self):
         """Calculate price, including tax."""
         
-        base_price = 5
-
         if self.species == "Christmas melon":
-            base_price = 1.5 * base_price
+            get_base_price() = 1.5 * get_base_price()
         
-        total = (1 + self.tax) * self.qty * base_price
+        total = (1 + self.tax) * self.qty * get_base_price()
 
         if self.qty < 10 and self.order_type == 'international':
             total += 3
